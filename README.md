@@ -46,13 +46,18 @@ El servidor se comunica con la impresora del sistema mediante los comandos nativ
 
 Para que el servidor se ejecute en segundo plano automáticamente cada vez que inicies sesión en tu Mac:
 
-1. **Copiar el archivo de configuración del servicio:**
+1. **Editar el archivo `.plist` para ajustar las rutas:**
+   Abre el archivo [com.ecosoft.coindrawer.plist](file:///Users/pawboss/Desktop/marianobiencinto.dev/projects/ecosoft/ecosoftweb_coin_drawer_manager/com.ecosoft.coindrawer.plist) y asegúrate de modificar los placeholders con las rutas reales de tu sistema:
+   - `/ruta/a/tu/python3`: La ruta al ejecutable de Python 3 de tu sistema (puedes obtenerla ejecutando `which python3` en la terminal, ej: `/usr/bin/python3`, `/usr/local/bin/python3` o `/opt/homebrew/bin/python3`).
+   - `/ruta/a/la/carpeta/del/proyecto`: La ruta absoluta donde se encuentra este proyecto (ej: `/Users/tu_usuario/ruta/del/proyecto`).
+
+2. **Copiar el archivo de configuración del servicio:**
    Desde la terminal del proyecto, copia el archivo `com.ecosoft.coindrawer.plist` a la carpeta de LaunchAgents del usuario:
    ```bash
    cp com.ecosoft.coindrawer.plist ~/Library/LaunchAgents/
    ```
 
-2. **Cargar y arrancar el servicio:**
+3. **Cargar y arrancar el servicio:**
    ```bash
    launchctl load ~/Library/LaunchAgents/com.ecosoft.coindrawer.plist
    ```
