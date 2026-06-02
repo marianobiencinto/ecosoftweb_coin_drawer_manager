@@ -1,12 +1,24 @@
 # Coin Drawer Manager (Gestor del Cajón Portamonedas TPV)
 
-Este proyecto permite abrir automáticamente un cajón portamonedas conectado a una impresora de tickets mediante peticiones HTTP desde el navegador (por ejemplo, desde la web de Ecosoft), utilizando un script de Tampermonkey y un servidor local en Python.
+Este proyecto está diseñado **exclusivamente para sistemas macOS**. Permite abrir automáticamente un cajón portamonedas conectado a una impresora de tickets mediante peticiones HTTP desde el navegador (por ejemplo, desde la web de Ecosoft), utilizando un script de Tampermonkey y un servidor local en Python.
+
+---
+
+## Requisitos del Sistema
+
+Para poder utilizar esta herramienta, tu equipo debe cumplir con los siguientes requisitos:
+
+1. **Sistema Operativo:** macOS (OS X / macOS Catalina, Big Sur, Monterey, Ventura, Sonoma, Sequoia o superior).
+2. **Python 3:** Debe estar instalado en el sistema (por lo general viene preinstalado, o se puede instalar usando Homebrew o el sitio web oficial de Python).
+3. **Impresora POS/Tickets:** Una impresora térmica de tickets (con soporte ESC/POS) configurada y reconocida en el sistema (instalada en el panel de macOS *Ajustes del Sistema -> Impresoras y escáneres*).
+4. **Cajón Portamonedas:** Debe estar conectado físicamente a la impresora de tickets a través del puerto telefónico RJ11.
+5. **Navegador Web:** Un navegador moderno (Chrome, Firefox, Safari, Edge, etc.) con la extensión **Tampermonkey** instalada.
 
 ---
 
 ## 1. Configuración del Servidor
 
-El servidor se comunica con la impresora del sistema mediante comandos del sistema operativo (`lp`).
+El servidor se comunica con la impresora del sistema mediante los comandos nativos de impresión de macOS (`lp` y `lpstat`).
 
 1. **Obtener las impresoras instaladas:**
    Abre una terminal y ejecuta el siguiente comando para ver el nombre exacto de tus impresoras:
@@ -32,7 +44,7 @@ El servidor se comunica con la impresora del sistema mediante comandos del siste
 
 ## 2. Configurar Inicio Automático en macOS (Servicio launchd)
 
-Para que el servidor se ejecute en segundo plano automáticamente cada vez que inicies sesión en el ordenador:
+Para que el servidor se ejecute en segundo plano automáticamente cada vez que inicies sesión en tu Mac:
 
 1. **Copiar el archivo de configuración del servicio:**
    Desde la terminal del proyecto, copia el archivo `com.ecosoft.coindrawer.plist` a la carpeta de LaunchAgents del usuario:
@@ -50,7 +62,7 @@ Para que el servidor se ejecute en segundo plano automáticamente cada vez que i
   ```bash
   launchctl unload ~/Library/LaunchAgents/com.ecosoft.coindrawer.plist
   ```
-* **Reiniciar el servicio (si cambias la configuración):**
+* **Reiniciar el servicio (si cambias la configuración en config.json):**
   ```bash
   launchctl unload ~/Library/LaunchAgents/com.ecosoft.coindrawer.plist
   launchctl load ~/Library/LaunchAgents/com.ecosoft.coindrawer.plist
@@ -65,7 +77,7 @@ Para que el servidor se ejecute en segundo plano automáticamente cada vez que i
 Para vincular las acciones de la web de Ecosoft con tu cajón local:
 
 1. **Instalar Tampermonkey:**
-   Instala la extensión Tampermonkey en tu navegador web (Chrome, Edge, Firefox, Safari, etc.) desde su tienda de extensiones oficial.
+   Instala la extensión Tampermonkey en tu navegador web desde su tienda de extensiones oficial.
 
 2. **Crear un nuevo script:**
    * Abre el panel de control de Tampermonkey haciendo clic en el icono de la extensión y selecciona **Crear un nuevo script** (o el botón "+").
