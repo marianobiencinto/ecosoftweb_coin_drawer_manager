@@ -6,18 +6,18 @@
     <string>com.ecosoft.coindrawer</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/ruta/a/tu/python3</string>
-        <string>/ruta/a/la/carpeta/del/proyecto/server.py</string>
+        <string>/usr/bin/python3</string>
+        <string>/Users/herbolario/projects/ecosoft/ecosoftweb_coin_drawer_manager/server.py</string>
     </array>
     <key>WorkingDirectory</key>
-    <string>/ruta/a/la/carpeta/del/proyecto</string>
+    <string>/Users/herbolario/projects/ecosoft/ecosoftweb_coin_drawer_manager</string>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/ruta/a/la/carpeta/del/proyecto/server.log</string>
+    <string>/Users/herbolario/projects/ecosoft/ecosoftweb_coin_drawer_manager/server.log</string>
     <key>StandardErrorPath</key>
-    <string>/ruta/a/la/carpeta/del/proyecto/server.log</string>
+    <string>/Users/herbolario/projects/ecosoft/ecosoftweb_coin_drawer_manager/server.log</string>
 </dict>
 </plist>
