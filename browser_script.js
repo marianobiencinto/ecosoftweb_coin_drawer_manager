@@ -10,7 +10,7 @@
 (function () {
     'use strict';
 
-    const SELECTORS = ['button.open_drawer', 'button.finish', '.open_drawer', '.finish'];
+    const SELECTORS = ['.btnAbrirCajon'];
     const ENDPOINT = 'http://127.0.0.1:6543/open-drawer';
 
     function openDrawer() {
